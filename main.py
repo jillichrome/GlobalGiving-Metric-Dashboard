@@ -19,8 +19,6 @@ def main(starting_project_id):
         print("Current project count {}".format(len(project_list)))
     with open('projects.json', 'w') as outfile:
         json.dump(projects_dict, outfile)
-    with open('sample_dict.py', 'w') as outfile:
-        json.dump(projects_dict, outfile)
 
 def get_projects(starting_project_id):
     # set api-endpoint
