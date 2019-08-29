@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import authReducer from './authReducer';
+import graphReducer from './graphReducer';
 import projectReducer from './projectReducer';
 
 const rootReducer = combineReducers({
-  auth: authReducer,
+  graph: graphReducer,
   project: projectReducer
 })
 
