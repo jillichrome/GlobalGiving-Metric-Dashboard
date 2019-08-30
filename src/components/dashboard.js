@@ -17,14 +17,15 @@ class Dashboard extends React.Component {
 
     return(
       <div className='dashboard container'>
-        <div className='row'>
-          <div className='col s12 m6'>
-            <ProjectList projects={projects} />
-          </div>
-          <div className='col s12 m5 offset-m1'>
+        <h3 className='green-text text-darken-2'>Overview of GlobalGiving Projects</h3>
+        <div className='divider'></div>
+          <div className='section'>
             <Doughnut data={graphData} options={{responsive: true, maintainAspectRatio: false, legend: {display: false}, title: {display: true, text: 'Projects by Theme', fontSize: 16}}} height='250' />
           </div>
-        </div>
+          <div className='divider'></div>
+          <div className='section'>
+            <ProjectList projects={projects} />
+          </div>
       </div>
     )
   }
