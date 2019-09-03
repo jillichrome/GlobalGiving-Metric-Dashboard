@@ -17,7 +17,7 @@ class Dashboard extends React.Component {
 
     return(
       <div className='dashboard container'>
-        <h3 className='green-text text-darken-2'>Overview of GlobalGiving Projects</h3>
+        <h4 className='blue-grey-text text-darken-1'>Overview of GlobalGiving Projects</h4>
         <div className='divider'></div>
           <div className='section'>
             <Doughnut data={graphData} options={{responsive: true, maintainAspectRatio: false, legend: {display: false}, title: {display: true, text: 'Projects by Theme', fontSize: 16}}} height='250' />

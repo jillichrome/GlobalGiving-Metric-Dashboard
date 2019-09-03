@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <div className='nav-nav-wrapper grey darken-3'>
       <div className='container'>
-        <Link to='/' className='brand-logo'>GlobalGiving Metrics</Link>
+        <Link to='/' className='brand-logo'><img width='30' height='30' src='favicon.png' alt='' />GlobalGiving Metrics</Link>
       </div>
     </div>
   )
