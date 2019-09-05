@@ -5,9 +5,16 @@ let initState = {
      datasets: [{
        data: ['700', '550', '400', '150', '400'],
        backgroundColor: ['#FF8A65','#36a2eb','#cc65fe','#ffce56','#37D67A']
-      }]
-   },
-  ]
+     }]
+     },
+     {
+       labels: ['Asia', 'Africa', 'Latin America', 'Eastern Europe', 'United States'],
+       datasets:[{
+         data: ['300', '550', '400', '350', '200'],
+         backgroundColor: ['#FF8A65','#36a2eb','#cc65fe','#ffce56','#37D67A']
+       }]
+     }
+   ]
 }
 
 const graphReducer = (state = initState, action) => {
