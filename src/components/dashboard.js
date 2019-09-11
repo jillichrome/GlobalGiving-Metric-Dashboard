@@ -39,7 +39,11 @@ class Dashboard extends React.Component {
           </div>
         <div className='divider'></div>
         <div className='section'>
-          <ProjectList projects={projects} />
+          <div className='row'>
+            <div className='col s16 offset-s3 valign'>
+              <ProjectList projects={projects} />
+            </div>
+          </div>
         </div>
       </div>
     )

@@ -26,3 +26,8 @@ export const goals =[];
 for (let i=0; i < totalProjects; i++) {
   goals.push(dataList[i].goal)
 }
+
+export const images = [];
+for (let i=0; i < totalProjects; i++) {
+  images.push(dataList[i].image.imagelink[2].url)
+}
