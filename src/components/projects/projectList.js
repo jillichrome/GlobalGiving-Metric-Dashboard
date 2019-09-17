@@ -1,16 +1,12 @@
 import React from 'react';
 import ProjectSummary from './projectSummary';
 
-const ProjectList = ({projects}) => {
+export const ProjectList = ({projects}) => {
   return(
     <div className='project-list section'>
       { projects && projects.map(project => {
-        return(
-          <ProjectSummary project={project} key={project.id} />
-        )
+        return <ProjectSummary project={project} key={project.id} />
       })}
     </div>
   )
 }
-
-export default ProjectList;

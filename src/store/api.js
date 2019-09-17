@@ -27,7 +27,17 @@ for (let i=0; i < totalProjects; i++) {
   goals.push(dataList[i].goal)
 }
 
+export const remaining = [];
+for (let i=0; i < totalProjects; i++) {
+  remaining.push(dataList[i].remaining)
+}
+
 export const images = [];
 for (let i=0; i < totalProjects; i++) {
   images.push(dataList[i].image.imagelink[2].url)
+}
+
+export const dates = [];
+for (let i=0; i < totalProjects; i++) {
+  dates.push(dataList[i].approvedDate)
 }

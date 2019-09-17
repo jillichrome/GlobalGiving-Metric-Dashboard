@@ -1,7 +1,8 @@
 import React from 'react';
 import {Doughnut} from 'react-chartjs-2';
 import {Pie} from 'react-chartjs-2';
-import ProjectList from './projects/projectList';
+import { OldestProject, NewestProject } from './projects/projectDates';
+import { NeedsFunds, ClosestFunds } from './projects/projectFunds';
 import { connect } from 'react-redux';
 
 class Dashboard extends React.Component {
@@ -40,8 +41,17 @@ class Dashboard extends React.Component {
         <div className='divider'></div>
         <div className='section'>
           <div className='row'>
-            <div className='col s16 offset-s3 valign'>
-              <ProjectList projects={projects} />
+            <div className='col s12 m6'>
+              <h5>Project Furthest From Goal</h5>
+              <NeedsFunds projects={projects} />
+              <h5>Project Closest to Goal</h5>
+              <ClosestFunds projects={projects} />
+            </div>
+            <div className='col s12 m6'>
+              <h5>Oldest Project</h5>
+              <OldestProject projects={projects} />
+              <h5>Newest Project</h5>
+              <NewestProject projects={projects} />
             </div>
           </div>
         </div>
