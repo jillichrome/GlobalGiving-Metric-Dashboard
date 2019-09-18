@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectSummary from './projectSummary';
-import {dates} from '../../store/api';
+import {dates} from '../../store/data';
 
 const days = [];
 dates.forEach(date => {

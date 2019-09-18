@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectSummary from './projectSummary';
-import {remaining} from '../../store/api';
+import {remaining} from '../../store/data';
 
 const max = Math.max(...remaining);
 const min = Math.min(...remaining);

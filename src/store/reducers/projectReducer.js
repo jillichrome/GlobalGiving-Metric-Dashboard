@@ -1,4 +1,4 @@
-import {titles, names, themes, funds, goals, remaining, images, dates} from './../api';
+import {titles, names, themes, funds, goals, remaining, images, dates} from './../data';
 
 const initState = {
   projects: [
