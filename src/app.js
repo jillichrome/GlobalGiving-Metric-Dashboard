@@ -7,7 +7,7 @@ import Children from './components/themes/children';
 import Climate from './components/themes/climate';
 import Economic from './components/themes/economic';
 import Education from './components/themes/education';
-import HumanRights from './components/themes/humanrights';
+import WomenGirls from './components/themes/women';
 
 class App extends React.Component {
   render() {
@@ -21,7 +21,7 @@ class App extends React.Component {
             <Route path='/climate' component={Climate} />
             <Route path='/economic' component={Economic} />
             <Route path='/education' component={Education} />
-            <Route path='/humanrights' component={HumanRights} />
+            <Route path='/women' component={WomenGirls} />
           </Switch>
         </div>
       </BrowserRouter>

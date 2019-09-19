@@ -14,7 +14,7 @@ class ProjectLinks extends React.Component {
         <a className='dropdown-trigger btn' data-target='dropdown1'>Themes<i className="material-icons right">arrow_drop_down</i></a>
         <ul id='dropdown1' className='dropdown-content'>
           <li><NavLink to='/education'>Education</NavLink></li>
-          <li><NavLink to='/humanrights'>Human Rights</NavLink></li>
+          <li><NavLink to='/women'>Women and Girls</NavLink></li>
           <li><NavLink to='/climate'>Climate Change</NavLink></li>
           <li><NavLink to='/economic'>Economic</NavLink></li>
           <li><NavLink to='/children'>Children</NavLink></li>

@@ -1,18 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Econ } from '../projects/projectThemes';
+import {WandG} from '../projects/projectThemes';
 
-class Economic extends React.Component {
+class WomenGirls extends React.Component {
   render() {
     const {projects} = this.props;
     return (
       <div className='dashboard container'>
-        <h4 className='blue-grey-text text-darken-1'>Overview of Projects: Economic Development</h4>
+        <h4 className='blue-grey-text text-darken-1'>Overview of Projects: Women and Girls</h4>
         <div className='divider'></div>
           <div className='section'>
             <div className='row'>
               <div className='col s7 offset-s3'>
-                <Econ projects={projects} />
+                <WandG projects={projects} />
               </div>
             </div>
           </div>
@@ -26,4 +26,4 @@ const mapStateToProps = state => ({
     graphs: state.graph.graphs,
 });
 
-export default connect(mapStateToProps)(Economic);
+export default connect(mapStateToProps)(WomenGirls);
