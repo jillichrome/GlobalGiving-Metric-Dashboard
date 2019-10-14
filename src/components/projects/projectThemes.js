@@ -1,10 +1,5 @@
 import React from 'react';
 import ProjectSummary from './projectSummary';
-import {themes} from '../../store/data';
-
-themes.forEach(theme => {
-  console.log(theme)
-})
 
 export const Child = ({projects}) => {
   return(

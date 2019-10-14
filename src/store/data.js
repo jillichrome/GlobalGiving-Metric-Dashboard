@@ -41,3 +41,22 @@ export const dates = [];
 for (let i=0; i < totalProjects; i++) {
   dates.push(dataList[i].approvedDate)
 }
+
+const regions = [];
+for (let i=0; i < totalProjects; i++) {
+  regions.push(dataList[i].region)
+}
+
+function themefreq(themes){
+  return themes.reduce((map,theme) => Object.assign(map, {
+    [theme] : (map[theme]) ? map[theme] + 1 : 1 }), {});
+}
+export const labels = Object.keys(themefreq(themes));
+export const numTheme = Object.values(themefreq(themes));
+
+function regionfreq(regions) {
+  return regions.reduce((map,region) => Object.assign(map, {
+    [region] : (map[region]) ? map[region] + 1 : 1 }), {});
+}
+export const regLabels = Object.keys(regionfreq(regions));
+export const numRegion = Object.values(regionfreq(regions));

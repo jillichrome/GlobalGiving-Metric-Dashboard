@@ -1,17 +1,19 @@
+import {labels, numTheme, regLabels, numRegion} from '../data';
+
 let initState = {
   graphs: [
     {
-     labels: ['Children', 'Human Rights', 'Economic', 'Climate Change', 'Education'],
+     labels: labels,
      datasets: [{
-       data: ['700', '550', '400', '150', '400'],
-       backgroundColor: ['#FF8A65','#36a2eb','#cc65fe','#ffce56','#37D67A']
+       data: numTheme,
+       backgroundColor: ['#FF8A65','#36a2eb','#cc65fe','#ffce56','#37D67A', '#b71c1c']
      }]
      },
      {
-       labels: ['Asia', 'Africa', 'Latin America', 'Eastern Europe', 'United States'],
+       labels: regLabels,
        datasets:[{
-         data: ['300', '550', '400', '350', '200'],
-         backgroundColor: ['#FF8A65','#36a2eb','#cc65fe','#ffce56','#37D67A']
+         data: numRegion,
+         backgroundColor: ['#cc65fe','#36a2eb','#b71c1c']
        }]
      }
    ]
