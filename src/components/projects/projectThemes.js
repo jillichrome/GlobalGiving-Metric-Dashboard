@@ -68,3 +68,17 @@ export const WandG = ({projects}) => {
     </div>
   )
 }
+
+export const HealthProj = ({projects}) => {
+  return(
+    <div className='project-list section'>
+      {
+        projects.map(project => {
+          if(project.theme === 'Health') {
+            return <ProjectSummary project={project} key={project.id} />
+          }
+        })
+      }
+    </div>
+  )
+}

@@ -18,6 +18,7 @@ class ProjectLinks extends React.Component {
           <li><NavLink to='/climate'>Climate Change</NavLink></li>
           <li><NavLink to='/economic'>Economic</NavLink></li>
           <li><NavLink to='/children'>Children</NavLink></li>
+          <li><NavLink to='/health'>Health</NavLink></li>
         </ul>
       </div>
     )

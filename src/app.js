@@ -8,6 +8,7 @@ import Climate from './components/themes/climate';
 import Economic from './components/themes/economic';
 import Education from './components/themes/education';
 import WomenGirls from './components/themes/women';
+import Health from './components/themes/health';
 
 class App extends React.Component {
   render() {
@@ -22,6 +23,7 @@ class App extends React.Component {
             <Route path='/economic' component={Economic} />
             <Route path='/education' component={Education} />
             <Route path='/women' component={WomenGirls} />
+            <Route path='/health' component={Health} />
           </Switch>
         </div>
       </BrowserRouter>
