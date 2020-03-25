@@ -1,24 +1,12 @@
 #!/usr/bin/env python3
 
-# importing the requests library
 import argparse
 import json
-#import os
+import os
+import pymongo
 import requests
+import subprocess
 import config as cfg
-
-def main(starting_project_id):
-    projects_dict = get_projects(starting_project_id)
-    has_next, next_id, project_list = get_bookmarks(projects_dict)
-    print("Added {} projects.".format(len(project_list)))
-    while has_next:
-        update_dict = get_projects(next_id)
-        has_next, next_id, update_list = get_bookmarks(update_dict)
-        [project_list.append(project) for project in update_list]
-        print("Added {} more projects.".format(len(update_list)))
-        print("Current project count {}".format(len(project_list)))
-    with open('projects.json', 'w') as outfile:
-        json.dump(projects_dict, outfile)
 
 def get_projects(starting_project_id):
     # set api-endpoint
@@ -44,12 +32,53 @@ def get_bookmarks(projects_dict):
     project_list = projects_dict['projects']['project']
     return has_next, next_id, project_list
 
-if __name__ == '__main__':
-    PARSER = argparse.ArgumentParser(
+def scrape_projects(starting_project_id):
+    projects_dict = get_projects(starting_project_id)
+    has_next, next_id, project_list = get_bookmarks(projects_dict)
+    print("Added {} projects.".format(len(project_list)))
+    while has_next:
+        update_dict = get_projects(next_id)
+        has_next, next_id, update_list = get_bookmarks(update_dict)
+        [project_list.append(project) for project in update_list]
+        print("Added {} more projects.".format(len(update_list)))
+        print("Current project count {}".format(len(project_list)))
+    with open('projects.json', 'w') as outfile:
+        json.dump(projects_dict, outfile)
+
+def arg_parse():
+    parser = argparse.ArgumentParser(
         description='Scrape GlobalGiving for active projects.',
         epilog='Ensure that you have configured your API key as API_KEY in config.py.'
         )
-    PARSER.add_argument('--start', '--start_project', action="store", type=int, default=41500)
-    ARGS = PARSER.parse_args()
-    START_PROJECT = ARGS.start
-    main(START_PROJECT)
+    parser.add_argument('--start', '--start_project', nargs='?',
+                        action="store", type=int, const=41500)
+    args = parser.parse_args()
+    starting_project_id = args.start
+
+def create_db(db_name, collection_name):
+    client = pymongo.MongoClient('localhost', 27017)
+    db = client[db_name]
+    projects = db[collection_name]
+    return client, db
+
+def import_projects(json_input):
+    subprocess.Popen(['mongoimport', '--db', 'gg_projects_db', '-c', 'projects', '--file', json_input])
+
+
+def query_project(db):
+    mycol = db["projects"]
+    for data in mycol.find({}):
+        for project in data['projects']['project']:
+            print(project['remaining'])
+
+def delete_db(client, db_name):
+    dbs = client.database_names()
+    print(dbs)
+    client.drop_database(db_name)
+
+#main()
+
+gg_client, gg_db = create_db('gg_projects_db', 'projects')
+import_projects("./all_projects.json")
+#query_project(gg_db)
+#delete_db(gg_client, 'gg_projects_db')
